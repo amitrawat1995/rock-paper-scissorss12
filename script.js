@@ -33,8 +33,20 @@ let score = JSON.parse(localStorage.getItem('score')) ||{
     }else{
       clearInterval(interValid);
       isAutoPlaying= false;
+      
     }  
   }  
+
+
+  function changeText() {
+    const button = document.getElementById("myButton");
+    if (button.innerHTML === "Auto Play") {
+      button.innerHTML = "Stop";
+    } else {
+      button.innerHTML = "Auto Play";
+    }
+  }
+  
 
   document.querySelector('.js-rock-button')
     .addEventListener('click', () => {
@@ -61,8 +73,8 @@ let score = JSON.parse(localStorage.getItem('score')) ||{
     }  
   });
 
+  
 
-          
   function playGame(playerMove){
     const computerMove= pickComputerMove();
   
@@ -77,7 +89,6 @@ let score = JSON.parse(localStorage.getItem('score')) ||{
       result = 'You win.';
     }
 
-
   }else if (playerMove === 'paper') {
     if(computerMove === 'rock'){
     result = 'You win.';
@@ -86,7 +97,6 @@ let score = JSON.parse(localStorage.getItem('score')) ||{
     }else if (computerMove === 'scissors'){
     result = 'You lose.';
     }
-
     
   }else if (playerMove === 'scissors') {
       if(computerMove === 'rock'){
@@ -119,6 +129,8 @@ let score = JSON.parse(localStorage.getItem('score')) ||{
        class="move-icon"> Computer .`
 };
   
+
+
 
   function updateScoreElement (){
     document.querySelector('.js-score')
